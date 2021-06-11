@@ -37,3 +37,24 @@ const web3 = new Web3(ganache.provider());
 //         assert.equal(car.drive(), 'vroom');
 //     });
 // });
+
+//Async/Await refactoring method
+//promise syntax below
+let accounts;
+
+beforeEach(async() => {
+    // Get a list of all accounts
+    accounts = await web3.eth.getAccounts()
+    //promise syntax
+        // .then(fetchedAccounts => {
+        //     console.log(fetchedAccounts);
+        // });
+    // Use one of those accounts to deploy
+    // the contract
+});
+
+describe('Inbox', () => {
+    it('deploys a contract', () => {
+        console.log(accounts)
+    });
+});
