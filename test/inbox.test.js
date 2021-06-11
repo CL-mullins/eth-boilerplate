@@ -7,6 +7,8 @@ const Web3 = require('web3');
 // replace ganache with rinkeby..etc as necessary
 // providers are very necessary
 const web3 = new Web3(ganache.provider());
+// import statements from compile.js
+const { interface, bytecode } = require('../compile')
 
 // Mocha is a general-purpose test running network that we will be using now
 // class Car {
@@ -41,20 +43,25 @@ const web3 = new Web3(ganache.provider());
 //Async/Await refactoring method
 //promise syntax below
 let accounts;
+let inbox;
 
 beforeEach(async() => {
     // Get a list of all accounts
-    accounts = await web3.eth.getAccounts()
+    accounts = await web3.eth.getAccounts();
     //promise syntax
         // .then(fetchedAccounts => {
         //     console.log(fetchedAccounts);
         // });
+
     // Use one of those accounts to deploy
     // the contract
+    inbox = await new web3.eth.Contract(JSON.parse(interface))
+        .deploy({ data: bytecode, arguments: ['Hi there!'] })
+        .send({ from: accounts[0], gas:'1000000' });
 });
 
 describe('Inbox', () => {
     it('deploys a contract', () => {
-        console.log(accounts)
+        console.log(inbox);
     });
 });
