@@ -7,4 +7,4 @@ A "smart contract" is simply a program that runs on the Ethereum blockchain. It'
 
 # What does this do?
 
-Includes tests run locally
+Includes tests run locally by generating a new local network soley for the purpose of testing the contract. The tests are created using the Ganache library (previously called TestRPC)
