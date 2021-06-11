@@ -7,3 +7,33 @@ const Web3 = require('web3');
 // replace ganache with rinkeby..etc as necessary
 // providers are very necessary
 const web3 = new Web3(ganache.provider());
+
+// Mocha is a general-purpose test running network that we will be using now
+// class Car {
+//     park() {
+//         return 'stopped';
+//     }
+//     drive(){
+//         return 'vroom';
+//     }
+// }
+
+// // intialize value
+// let car;
+// //common intialization codde for individual tests
+// beforeEach(() => {
+//     //assign value to car
+//     car = new Car();
+// });
+
+// describe('Car', () => {
+//     //test park function
+//     it('can park', () => {
+//         // assert is checking if the values are equal here
+//         assert.equal(car.park(), 'stopped');
+//     });
+
+//     it('can drive', () => {
+//         assert.equal(car.drive(), 'vroom');
+//     });
+// });
