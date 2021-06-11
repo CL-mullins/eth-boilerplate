@@ -1,4 +1,5 @@
 pragma solidity ^0.4.17;
+//current version for tutorial purposes
 
 contract Inbox {
     string public message;
