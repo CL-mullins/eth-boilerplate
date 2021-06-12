@@ -47,6 +47,7 @@ let inbox;
 
 beforeEach(async() => {
     // Get a list of all accounts
+    // Creates a set of accounts
     accounts = await web3.eth.getAccounts();
     //promise syntax
         // .then(fetchedAccounts => {
@@ -66,5 +67,13 @@ describe('Inbox', () => {
     });
     it('has a default message', async () => {
         const message = await inbox.methods.message().call();
+        //assert.equal(message, 'Hi There');
+    });
+
+    it('can change the message', async() => {
+        // . send the transcation
+        await inbox.methods.setMessage('bye').send({ from: accounts[0]});
+        const message = await inbox.methods.message().call();
+        assert.equal(message, 'bye');
     });
 });
